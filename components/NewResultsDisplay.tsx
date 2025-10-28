@@ -29,45 +29,47 @@ const NewResultsDisplay: React.FC<NewResultsDisplayProps> = ({ results }) => {
   const busyCount = totalSlots - freeCount;
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-6 sm:space-y-8">
       {/* Summary Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div className="bg-gradient-to-br from-green-500 to-green-600 text-white rounded-2xl p-6 shadow-xl">
-          <div className="text-4xl font-bold mb-2">{freeCount}</div>
-          <div className="text-green-100 font-semibold">✅ Free Time Slots</div>
-          <div className="text-sm text-green-100 mt-2">When everyone can meet!</div>
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
+        <div className="bg-gradient-to-br from-green-500 to-green-600 text-white rounded-2xl p-4 sm:p-6 shadow-xl">
+          <div className="text-3xl sm:text-4xl font-bold mb-2">{freeCount}</div>
+          <div className="text-green-100 font-semibold text-sm sm:text-base">✅ Free Time Slots</div>
+          <div className="text-xs sm:text-sm text-green-100 mt-1 sm:mt-2">When everyone can meet!</div>
         </div>
 
-        <div className="bg-gradient-to-br from-red-500 to-red-600 text-white rounded-2xl p-6 shadow-xl">
-          <div className="text-4xl font-bold mb-2">{busyCount}</div>
-          <div className="text-red-100 font-semibold">❌ Busy Time Slots</div>
-          <div className="text-sm text-red-100 mt-2">Someone has class</div>
+        <div className="bg-gradient-to-br from-red-500 to-red-600 text-white rounded-2xl p-4 sm:p-6 shadow-xl">
+          <div className="text-3xl sm:text-4xl font-bold mb-2">{busyCount}</div>
+          <div className="text-red-100 font-semibold text-sm sm:text-base">❌ Busy Time Slots</div>
+          <div className="text-xs sm:text-sm text-red-100 mt-1 sm:mt-2">Someone has class</div>
         </div>
 
-        <div className="bg-gradient-to-br from-blue-500 to-purple-600 text-white rounded-2xl p-6 shadow-xl">
-          <div className="text-4xl font-bold mb-2">{results.friendSchedules.length}</div>
-          <div className="text-blue-100 font-semibold">👥 Friends</div>
-          <div className="text-sm text-blue-100 mt-2">Total schedules analyzed</div>
+        <div className="bg-gradient-to-br from-blue-500 to-purple-600 text-white rounded-2xl p-4 sm:p-6 shadow-xl">
+          <div className="text-3xl sm:text-4xl font-bold mb-2">{results.friendSchedules.length}</div>
+          <div className="text-blue-100 font-semibold text-sm sm:text-base">👥 Friends</div>
+          <div className="text-xs sm:text-sm text-blue-100 mt-1 sm:mt-2">Total schedules analyzed</div>
         </div>
       </div>
 
       {/* Weekly Schedule Grid */}
-      <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl p-8 transition-colors duration-300">
-        <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-6 flex items-center">
+      <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl p-4 sm:p-6 md:p-8 transition-colors duration-300">
+        <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 dark:text-white mb-4 sm:mb-6 flex items-center">
           <span className="mr-3">📅</span>
           Complete Weekly Schedule
         </h2>
 
-        <div className="overflow-x-auto">
-          <table className="w-full border-collapse">
+        <div className="overflow-x-auto -mx-4 sm:mx-0">
+          <div className="inline-block min-w-full align-middle px-4 sm:px-0">
+            <table className="w-full border-collapse min-w-[640px]">
             <thead>
               <tr>
-                <th className="border-2 border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-700 px-4 py-3 text-left font-bold text-gray-700 dark:text-gray-300">
+                <th className="border-2 border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-700 px-2 sm:px-4 py-2 sm:py-3 text-left font-bold text-gray-700 dark:text-gray-300 text-xs sm:text-sm">
                   Time / Day
                 </th>
                 {daysOrder.map(day => (
-                  <th key={day} className="border-2 border-gray-300 dark:border-gray-600 bg-gradient-to-br from-blue-500 to-purple-600 dark:from-blue-600 dark:to-purple-700 text-white px-4 py-3 text-center font-bold">
-                    {day}
+                  <th key={day} className="border-2 border-gray-300 dark:border-gray-600 bg-gradient-to-br from-blue-500 to-purple-600 dark:from-blue-600 dark:to-purple-700 text-white px-2 sm:px-4 py-2 sm:py-3 text-center font-bold text-xs sm:text-sm">
+                    <span className="hidden sm:inline">{day}</span>
+                    <span className="sm:hidden">{day.slice(0, 3)}</span>
                   </th>
                 ))}
               </tr>
@@ -75,8 +77,9 @@ const NewResultsDisplay: React.FC<NewResultsDisplayProps> = ({ results }) => {
             <tbody>
               {timeSlots.map(time => (
                 <tr key={time}>
-                  <td className="border-2 border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 px-4 py-3 font-semibold text-gray-700 dark:text-gray-300 whitespace-nowrap">
-                    {time}
+                  <td className="border-2 border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 px-2 sm:px-4 py-2 sm:py-3 font-semibold text-gray-700 dark:text-gray-300 whitespace-nowrap text-xs sm:text-sm">
+                    <span className="hidden sm:inline">{time}</span>
+                    <span className="sm:hidden">{time.split(' - ')[0]}</span>
                   </td>
                   {daysOrder.map(day => {
                     const slot = results.weeklyGrid[day]?.[time];
@@ -87,7 +90,7 @@ const NewResultsDisplay: React.FC<NewResultsDisplayProps> = ({ results }) => {
                     return (
                       <td
                         key={day}
-                        className={`border-2 border-gray-300 dark:border-gray-600 px-4 py-3 text-center font-semibold transition-all cursor-pointer group relative ${
+                        className={`border-2 border-gray-300 dark:border-gray-600 px-2 sm:px-4 py-2 sm:py-3 text-center font-semibold transition-all cursor-pointer group relative ${
                           isFree
                             ? 'bg-green-100 dark:bg-green-900/30 hover:bg-green-200 dark:hover:bg-green-800/40 text-green-800 dark:text-green-300'
                             : 'bg-red-100 dark:bg-red-900/30 hover:bg-red-200 dark:hover:bg-red-800/40 text-red-800 dark:text-red-300'
@@ -101,17 +104,17 @@ const NewResultsDisplay: React.FC<NewResultsDisplayProps> = ({ results }) => {
                         }
                       >
                         <div className="flex flex-col items-center">
-                          <span className="text-2xl">{isFree ? '✅' : '❌'}</span>
-                          <span className="text-xs mt-1">{isFree ? 'Free' : busyFriends.length === 1 ? '1 busy' : `${busyFriends.length} busy`}</span>
+                          <span className="text-lg sm:text-2xl">{isFree ? '✅' : '❌'}</span>
+                          <span className="text-[10px] sm:text-xs mt-0.5 sm:mt-1">{isFree ? 'Free' : busyFriends.length === 1 ? '1 busy' : `${busyFriends.length} busy`}</span>
                         </div>
 
                         {/* Hover tooltip */}
-                        <div className="absolute z-10 invisible group-hover:visible bg-gray-900 dark:bg-gray-700 text-white text-sm rounded-lg px-3 py-2 bottom-full left-1/2 transform -translate-x-1/2 mb-2 whitespace-nowrap shadow-xl">
+                        <div className="absolute z-10 invisible group-hover:visible bg-gray-900 dark:bg-gray-700 text-white text-xs sm:text-sm rounded-lg px-2 sm:px-3 py-1.5 sm:py-2 bottom-full left-1/2 transform -translate-x-1/2 mb-2 whitespace-nowrap shadow-xl max-w-xs">
                           {isFree ? (
                             <div>
                               <div className="font-bold text-green-400 dark:text-green-300">✅ FREE TIME!</div>
                               {labs.length > 0 && (
-                                <div className="text-xs mt-1">
+                                <div className="text-[10px] sm:text-xs mt-1">
                                   Labs: {labs.slice(0, 3).join(', ')}
                                   {labs.length > 3 && ` +${labs.length - 3} more`}
                                 </div>
@@ -132,28 +135,29 @@ const NewResultsDisplay: React.FC<NewResultsDisplayProps> = ({ results }) => {
               ))}
             </tbody>
           </table>
+          </div>
         </div>
 
-        <div className="mt-6 flex items-center justify-center space-x-6 text-sm">
+        <div className="mt-4 sm:mt-6 flex flex-col sm:flex-row items-start sm:items-center justify-center gap-3 sm:gap-6 text-xs sm:text-sm">
           <div className="flex items-center space-x-2">
-            <div className="w-6 h-6 bg-green-100 dark:bg-green-900/30 border-2 border-green-500 dark:border-green-600 rounded"></div>
+            <div className="w-5 h-5 sm:w-6 sm:h-6 bg-green-100 dark:bg-green-900/30 border-2 border-green-500 dark:border-green-600 rounded"></div>
             <span className="text-gray-700 dark:text-gray-300 font-semibold">Free - Everyone Available</span>
           </div>
           <div className="flex items-center space-x-2">
-            <div className="w-6 h-6 bg-red-100 dark:bg-red-900/30 border-2 border-red-500 dark:border-red-600 rounded"></div>
+            <div className="w-5 h-5 sm:w-6 sm:h-6 bg-red-100 dark:bg-red-900/30 border-2 border-red-500 dark:border-red-600 rounded"></div>
             <span className="text-gray-700 dark:text-gray-300 font-semibold">Busy - Someone has class</span>
           </div>
         </div>
       </div>
 
       {/* Friend Schedules Breakdown */}
-      <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl p-8 transition-colors duration-300">
-        <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-6 flex items-center">
+      <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl p-4 sm:p-6 md:p-8 transition-colors duration-300">
+        <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 dark:text-white mb-4 sm:mb-6 flex items-center">
           <span className="mr-3">👥</span>
           Individual Schedules
         </h2>
 
-        <div className="space-y-4">
+        <div className="space-y-3 sm:space-y-4">
           {results.friendSchedules.map(friend => {
             const isExpanded = expandedFriend === friend.name;
             const slotsByDay = friend.busySlots.reduce((acc, slot) => {
@@ -166,33 +170,33 @@ const NewResultsDisplay: React.FC<NewResultsDisplayProps> = ({ results }) => {
               <div key={friend.name} className="border-2 border-gray-200 dark:border-gray-600 rounded-xl overflow-hidden">
                 <button
                   onClick={() => setExpandedFriend(isExpanded ? null : friend.name)}
-                  className="w-full bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 hover:from-blue-100 hover:to-purple-100 dark:hover:from-blue-800/30 dark:hover:to-purple-800/30 px-6 py-4 flex items-center justify-between transition-colors"
+                  className="w-full bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 hover:from-blue-100 hover:to-purple-100 dark:hover:from-blue-800/30 dark:hover:to-purple-800/30 px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between transition-colors"
                 >
-                  <div className="flex items-center space-x-4">
-                    <span className="text-2xl">👤</span>
-                    <span className="text-xl font-bold text-gray-800 dark:text-white">{friend.name}</span>
-                    <span className="bg-blue-500 dark:bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-semibold">
-                      {friend.busySlots.length} busy slots
+                  <div className="flex items-center space-x-2 sm:space-x-4">
+                    <span className="text-xl sm:text-2xl">👤</span>
+                    <span className="text-base sm:text-xl font-bold text-gray-800 dark:text-white truncate">{friend.name}</span>
+                    <span className="bg-blue-500 dark:bg-blue-600 text-white px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-xs sm:text-sm font-semibold whitespace-nowrap">
+                      {friend.busySlots.length} busy
                     </span>
                   </div>
-                  <span className="text-2xl transform transition-transform dark:text-gray-300" style={{ transform: isExpanded ? 'rotate(180deg)' : 'rotate(0deg)' }}>
+                  <span className="text-xl sm:text-2xl transform transition-transform dark:text-gray-300 flex-shrink-0" style={{ transform: isExpanded ? 'rotate(180deg)' : 'rotate(0deg)' }}>
                     ▼
                   </span>
                 </button>
 
                 {isExpanded && (
-                  <div className="px-6 py-4 bg-white dark:bg-gray-700">
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  <div className="px-4 sm:px-6 py-3 sm:py-4 bg-white dark:bg-gray-700">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
                       {daysOrder.map(day => {
                         const slots = slotsByDay[day] || [];
                         if (slots.length === 0) return null;
 
                         return (
-                          <div key={day} className="bg-gray-50 dark:bg-gray-600 rounded-lg p-4">
-                            <h4 className="font-bold text-blue-600 dark:text-blue-400 mb-2">{day}</h4>
+                          <div key={day} className="bg-gray-50 dark:bg-gray-600 rounded-lg p-3 sm:p-4">
+                            <h4 className="font-bold text-blue-600 dark:text-blue-400 mb-2 text-sm sm:text-base">{day}</h4>
                             <div className="space-y-1">
                               {slots.map((slot, i) => (
-                                <div key={i} className="text-sm text-gray-700 dark:text-gray-300 flex items-center">
+                                <div key={i} className="text-xs sm:text-sm text-gray-700 dark:text-gray-300 flex items-center">
                                   <span className="text-red-500 dark:text-red-400 mr-2">●</span>
                                   {slot}
                                 </div>
@@ -212,40 +216,40 @@ const NewResultsDisplay: React.FC<NewResultsDisplayProps> = ({ results }) => {
 
       {/* Free Time Slots List */}
       {results.freeSlots.length > 0 && (
-        <div className="bg-gradient-to-br from-green-50 to-blue-50 dark:from-green-900/20 dark:to-blue-900/20 rounded-2xl shadow-2xl p-8 transition-colors duration-300">
-          <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-6 flex items-center">
+        <div className="bg-gradient-to-br from-green-50 to-blue-50 dark:from-green-900/20 dark:to-blue-900/20 rounded-2xl shadow-2xl p-4 sm:p-6 md:p-8 transition-colors duration-300">
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 dark:text-white mb-4 sm:mb-6 flex items-center">
             <span className="mr-3">🎯</span>
             Best Times to Meet ({results.freeSlots.length} slots)
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
             {daysOrder.map(day => {
               const dayFreeSlots = results.freeSlots.filter(slot => slot.day === day);
               if (dayFreeSlots.length === 0) return null;
 
               return (
-                <div key={day} className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg border-2 border-green-200 dark:border-green-700">
-                  <h3 className="font-bold text-xl text-green-600 dark:text-green-400 mb-4">{day}</h3>
-                  <div className="space-y-3">
+                <div key={day} className="bg-white dark:bg-gray-800 rounded-xl p-4 sm:p-6 shadow-lg border-2 border-green-200 dark:border-green-700">
+                  <h3 className="font-bold text-lg sm:text-xl text-green-600 dark:text-green-400 mb-3 sm:mb-4">{day}</h3>
+                  <div className="space-y-2 sm:space-y-3">
                     {dayFreeSlots.map((slot, i) => {
                       const labs = results.availableLabs?.[slot.day]?.[slot.time] || [];
                       
                       return (
-                        <div key={i} className="bg-green-50 dark:bg-green-900/30 rounded-lg p-4 border-l-4 border-green-500 dark:border-green-600 hover:bg-green-100 dark:hover:bg-green-800/40 transition-colors">
-                          <div className="font-bold text-lg text-gray-800 dark:text-gray-200 mb-2">
+                        <div key={i} className="bg-green-50 dark:bg-green-900/30 rounded-lg p-3 sm:p-4 border-l-4 border-green-500 dark:border-green-600 hover:bg-green-100 dark:hover:bg-green-800/40 transition-colors">
+                          <div className="font-bold text-sm sm:text-lg text-gray-800 dark:text-gray-200 mb-1 sm:mb-2">
                             ⏰ {slot.time}
                           </div>
                           
                           {labs.length > 0 ? (
                             <div className="mt-2">
-                              <div className="text-sm font-semibold text-green-700 dark:text-green-400 mb-2">
+                              <div className="text-xs sm:text-sm font-semibold text-green-700 dark:text-green-400 mb-2">
                                 📍 Available Labs ({labs.length}):
                               </div>
-                              <div className="flex flex-wrap gap-2">
+                              <div className="flex flex-wrap gap-1.5 sm:gap-2">
                                 {labs.map((lab, labIndex) => (
                                   <span 
                                     key={labIndex}
-                                    className="inline-block bg-blue-100 dark:bg-blue-900/40 text-blue-800 dark:text-blue-200 text-xs font-semibold px-3 py-1 rounded-full border border-blue-300 dark:border-blue-700"
+                                    className="inline-block bg-blue-100 dark:bg-blue-900/40 text-blue-800 dark:text-blue-200 text-[10px] sm:text-xs font-semibold px-2 sm:px-3 py-0.5 sm:py-1 rounded-full border border-blue-300 dark:border-blue-700"
                                   >
                                     {lab}
                                   </span>

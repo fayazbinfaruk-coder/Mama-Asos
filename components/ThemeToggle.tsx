@@ -7,12 +7,12 @@ const ThemeToggle: React.FC = () => {
   return (
     <button
       onClick={toggleTheme}
-      className="fixed top-6 right-6 z-50 bg-white dark:bg-gray-800 border-2 border-gray-300 dark:border-gray-600 rounded-full p-3 shadow-lg hover:shadow-xl transition-all transform hover:scale-110 group"
+      className="fixed top-4 right-4 sm:top-6 sm:right-6 z-50 bg-white dark:bg-gray-800 border-2 border-gray-300 dark:border-gray-600 rounded-full p-2 sm:p-3 shadow-lg hover:shadow-xl transition-all transform hover:scale-110 group"
       aria-label="Toggle theme"
     >
       {theme === 'light' ? (
         <svg 
-          className="w-6 h-6 text-gray-800 dark:text-yellow-300 transition-transform group-hover:rotate-180" 
+          className="w-5 h-5 sm:w-6 sm:h-6 text-gray-800 dark:text-yellow-300 transition-transform group-hover:rotate-180" 
           fill="none" 
           stroke="currentColor" 
           viewBox="0 0 24 24"
@@ -26,7 +26,7 @@ const ThemeToggle: React.FC = () => {
         </svg>
       ) : (
         <svg 
-          className="w-6 h-6 text-yellow-400 transition-transform group-hover:rotate-180" 
+          className="w-5 h-5 sm:w-6 sm:h-6 text-yellow-400 transition-transform group-hover:rotate-180" 
           fill="none" 
           stroke="currentColor" 
           viewBox="0 0 24 24"

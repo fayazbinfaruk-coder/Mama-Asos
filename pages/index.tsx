@@ -66,11 +66,11 @@ export default function Home() {
         <meta name="description" content="Find the best times to hangout with friends!" />
       </Head>
       
-      <main className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 py-8 px-4 transition-colors duration-300">
+      <main className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 py-4 md:py-8 px-4 transition-colors duration-300">
         <ThemeToggle />
         
-        {/* Developer Info - Left Side */}
-        <div className="fixed left-6 top-1/2 transform -translate-y-1/2 z-40 bg-white dark:bg-gray-800 rounded-2xl shadow-2xl p-6 max-w-xs border-2 border-gray-200 dark:border-gray-700">
+        {/* Developer Info - Left Side (hidden on mobile) */}
+        <div className="hidden lg:block fixed left-6 top-1/2 transform -translate-y-1/2 z-40 bg-white dark:bg-gray-800 rounded-2xl shadow-2xl p-6 max-w-xs border-2 border-gray-200 dark:border-gray-700">
           <div className="text-center mb-4">
             <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full mx-auto mb-3 flex items-center justify-center text-white text-3xl font-bold">
               FB
@@ -107,11 +107,11 @@ export default function Home() {
         </div>
         
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-8">
-            <h1 className="text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text text-transparent mb-4">
+          <div className="text-center mb-6 md:mb-8">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text text-transparent mb-3 md:mb-4">
               Mama Asos??
             </h1>
-            <p className="text-xl text-gray-700 dark:text-gray-300">
+            <p className="text-base sm:text-lg md:text-xl text-gray-700 dark:text-gray-300 px-4">
               Select your friends' courses and find the perfect time to meet!
             </p>
           </div>
@@ -141,25 +141,25 @@ export default function Home() {
             <>
               <FriendSelector onComplete={handleFriendsComplete} />
               
-              <div className="mt-8 bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 transition-colors duration-300">
-                <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-4">
+              <div className="mt-6 md:mt-8 bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-4 sm:p-6 md:p-8 transition-colors duration-300">
+                <h2 className="text-xl sm:text-2xl font-bold text-gray-800 dark:text-white mb-4">
                   📚 How It Works
                 </h2>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                  <div className="text-center p-6 bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/30 dark:to-blue-800/30 rounded-xl">
-                    <div className="text-4xl mb-3">👥</div>
-                    <h3 className="font-bold text-lg mb-2 dark:text-white">1. Select Friends</h3>
-                    <p className="text-gray-700 dark:text-gray-300 text-sm">Choose how many friends</p>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6">
+                  <div className="text-center p-4 sm:p-6 bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/30 dark:to-blue-800/30 rounded-xl">
+                    <div className="text-3xl sm:text-4xl mb-2 sm:mb-3">👥</div>
+                    <h3 className="font-bold text-base sm:text-lg mb-1 sm:mb-2 dark:text-white">1. Select Friends</h3>
+                    <p className="text-gray-700 dark:text-gray-300 text-xs sm:text-sm">Choose how many friends</p>
                   </div>
-                  <div className="text-center p-6 bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-900/30 dark:to-purple-800/30 rounded-xl">
-                    <div className="text-4xl mb-3">📖</div>
-                    <h3 className="font-bold text-lg mb-2 dark:text-white">2. Add Courses</h3>
-                    <p className="text-gray-700 dark:text-gray-300 text-sm">Enter courses and sections</p>
+                  <div className="text-center p-4 sm:p-6 bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-900/30 dark:to-purple-800/30 rounded-xl">
+                    <div className="text-3xl sm:text-4xl mb-2 sm:mb-3">📖</div>
+                    <h3 className="font-bold text-base sm:text-lg mb-1 sm:mb-2 dark:text-white">2. Add Courses</h3>
+                    <p className="text-gray-700 dark:text-gray-300 text-xs sm:text-sm">Enter courses and sections</p>
                   </div>
-                  <div className="text-center p-6 bg-gradient-to-br from-pink-50 to-pink-100 dark:from-pink-900/30 dark:to-pink-800/30 rounded-xl">
-                    <div className="text-4xl mb-3">🎯</div>
-                    <h3 className="font-bold text-lg mb-2 dark:text-white">3. Find Times</h3>
-                    <p className="text-gray-700 dark:text-gray-300 text-sm">See when everyone is free!</p>
+                  <div className="text-center p-4 sm:p-6 bg-gradient-to-br from-pink-50 to-pink-100 dark:from-pink-900/30 dark:to-pink-800/30 rounded-xl">
+                    <div className="text-3xl sm:text-4xl mb-2 sm:mb-3">🎯</div>
+                    <h3 className="font-bold text-base sm:text-lg mb-1 sm:mb-2 dark:text-white">3. Find Times</h3>
+                    <p className="text-gray-700 dark:text-gray-300 text-xs sm:text-sm">See when everyone is free!</p>
                   </div>
                 </div>
               </div>
@@ -168,10 +168,10 @@ export default function Home() {
 
           {step === 'results' && results && !processing && (
             <>
-              <div className="mb-6 flex justify-end">
+              <div className="mb-4 md:mb-6 flex justify-end">
                 <button
                   onClick={handleStartOver}
-                  className="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 dark:from-blue-600 dark:to-purple-600 dark:hover:from-blue-700 dark:hover:to-purple-700 text-white font-bold py-3 px-8 rounded-xl transition-all shadow-lg flex items-center space-x-2"
+                  className="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 dark:from-blue-600 dark:to-purple-600 dark:hover:from-blue-700 dark:hover:to-purple-700 text-white font-bold py-2 px-6 sm:py-3 sm:px-8 rounded-xl transition-all shadow-lg flex items-center space-x-2 text-sm sm:text-base"
                 >
                   <span>←</span>
                   <span>Start Over</span>

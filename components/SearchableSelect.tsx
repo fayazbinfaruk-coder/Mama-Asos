@@ -114,7 +114,7 @@ const SearchableSelect: React.FC<SearchableSelectProps> = ({
           onClick={handleInputClick}
           onKeyDown={handleKeyDown}
           placeholder={placeholder}
-          className={`w-full border-2 rounded-lg px-4 py-2 focus:outline-none transition-all font-semibold ${
+          className={`w-full border-2 rounded-lg px-3 sm:px-4 py-2.5 sm:py-2 focus:outline-none transition-all font-semibold text-sm sm:text-base ${
             type === 'course' 
               ? 'border-blue-300 dark:border-blue-600 focus:border-blue-500 dark:focus:border-blue-400 text-blue-900 dark:text-blue-200' 
               : 'border-purple-300 dark:border-purple-600 focus:border-purple-500 dark:focus:border-purple-400 text-purple-900 dark:text-purple-200'
@@ -122,9 +122,9 @@ const SearchableSelect: React.FC<SearchableSelectProps> = ({
         />
         
         {/* Dropdown Arrow */}
-        <div className="absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none">
+        <div className="absolute right-2 sm:right-3 top-1/2 transform -translate-y-1/2 pointer-events-none">
           <svg 
-            className={`w-5 h-5 text-gray-400 dark:text-gray-500 transition-transform ${isOpen ? 'rotate-180' : ''}`}
+            className={`w-4 h-4 sm:w-5 sm:h-5 text-gray-400 dark:text-gray-500 transition-transform ${isOpen ? 'rotate-180' : ''}`}
             fill="none" 
             stroke="currentColor" 
             viewBox="0 0 24 24"
@@ -135,7 +135,7 @@ const SearchableSelect: React.FC<SearchableSelectProps> = ({
 
         {/* Selected Indicator */}
         {value && !isOpen && (
-          <div className={`absolute left-3 top-1/2 transform -translate-y-1/2 w-2 h-2 rounded-full ${
+          <div className={`absolute left-2 sm:left-3 top-1/2 transform -translate-y-1/2 w-2 h-2 rounded-full ${
             type === 'course' ? 'bg-blue-500 dark:bg-blue-400' : 'bg-purple-500 dark:bg-purple-400'
           }`} />
         )}
@@ -151,7 +151,7 @@ const SearchableSelect: React.FC<SearchableSelectProps> = ({
                   key={option}
                   onClick={() => handleSelect(option)}
                   onMouseEnter={() => setHighlightedIndex(index)}
-                  className={`px-4 py-3 cursor-pointer transition-colors ${
+                  className={`px-3 sm:px-4 py-2.5 sm:py-3 cursor-pointer transition-colors text-sm sm:text-base ${
                     index === highlightedIndex
                       ? type === 'course'
                         ? 'bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200'

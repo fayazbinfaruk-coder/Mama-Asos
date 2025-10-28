@@ -139,50 +139,50 @@ const FriendSelector: React.FC<FriendSelectorProps> = ({ onComplete }) => {
 
   if (step === 'select-number') {
     return (
-      <div className="max-w-2xl mx-auto p-8">
-        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl p-8 transition-colors duration-300">
-          <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-6 text-center">
+      <div className="max-w-2xl mx-auto p-4 sm:p-8">
+        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl p-4 sm:p-6 md:p-8 transition-colors duration-300">
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 dark:text-white mb-4 sm:mb-6 text-center">
             👥 How many friends do you want to meet?
           </h2>
           
           {loading && (
-            <div className="mb-6 bg-blue-50 dark:bg-blue-900/30 border-2 border-blue-200 dark:border-blue-700 rounded-xl p-4 text-center">
+            <div className="mb-4 sm:mb-6 bg-blue-50 dark:bg-blue-900/30 border-2 border-blue-200 dark:border-blue-700 rounded-xl p-3 sm:p-4 text-center">
               <div className="flex items-center justify-center space-x-3">
                 <div className="animate-spin rounded-full h-5 w-5 border-2 border-blue-500 dark:border-blue-400 border-t-transparent"></div>
-                <span className="text-blue-700 dark:text-blue-300 font-semibold">Loading course database...</span>
+                <span className="text-sm sm:text-base text-blue-700 dark:text-blue-300 font-semibold">Loading course database...</span>
               </div>
             </div>
           )}
           
-          <div className="space-y-6">
-            <div className="flex items-center justify-center space-x-4">
+          <div className="space-y-4 sm:space-y-6">
+            <div className="flex items-center justify-center space-x-3 sm:space-x-4">
               <button
                 onClick={() => setNumFriends(Math.max(2, numFriends - 1))}
-                className="bg-red-500 hover:bg-red-600 dark:bg-red-600 dark:hover:bg-red-700 text-white rounded-full w-12 h-12 flex items-center justify-center text-2xl font-bold transition-colors"
+                className="bg-red-500 hover:bg-red-600 dark:bg-red-600 dark:hover:bg-red-700 text-white rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center text-xl sm:text-2xl font-bold transition-colors"
               >
                 −
               </button>
               
-              <div className="bg-gradient-to-r from-blue-500 to-purple-600 dark:from-blue-600 dark:to-purple-700 text-white rounded-xl px-8 py-4 text-4xl font-bold min-w-[120px] text-center">
+              <div className="bg-gradient-to-r from-blue-500 to-purple-600 dark:from-blue-600 dark:to-purple-700 text-white rounded-xl px-6 py-3 sm:px-8 sm:py-4 text-3xl sm:text-4xl font-bold min-w-[100px] sm:min-w-[120px] text-center">
                 {numFriends}
               </div>
               
               <button
                 onClick={() => setNumFriends(Math.min(10, numFriends + 1))}
-                className="bg-green-500 hover:bg-green-600 dark:bg-green-600 dark:hover:bg-green-700 text-white rounded-full w-12 h-12 flex items-center justify-center text-2xl font-bold transition-colors"
+                className="bg-green-500 hover:bg-green-600 dark:bg-green-600 dark:hover:bg-green-700 text-white rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center text-xl sm:text-2xl font-bold transition-colors"
               >
                 +
               </button>
             </div>
 
-            <p className="text-center text-gray-600 dark:text-gray-400">
+            <p className="text-center text-sm sm:text-base text-gray-600 dark:text-gray-400">
               Select between 2 and 10 friends
             </p>
 
             <button
               onClick={handleNumFriendsSubmit}
               disabled={loading}
-              className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 disabled:from-gray-400 disabled:to-gray-500 text-white font-bold py-4 px-6 rounded-xl transition-all transform hover:scale-105 disabled:hover:scale-100 shadow-lg disabled:cursor-not-allowed"
+              className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 disabled:from-gray-400 disabled:to-gray-500 text-white font-bold py-3 sm:py-4 px-4 sm:px-6 rounded-xl transition-all transform hover:scale-105 disabled:hover:scale-100 shadow-lg disabled:cursor-not-allowed text-sm sm:text-base"
             >
               {loading ? 'Loading courses...' : 'Continue →'}
             </button>
@@ -193,31 +193,31 @@ const FriendSelector: React.FC<FriendSelectorProps> = ({ onComplete }) => {
   }
 
   return (
-    <div className="max-w-6xl mx-auto p-8">
-      <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl p-8 transition-colors duration-300">
-        <div className="flex items-center justify-between mb-6">
-          <h2 className="text-3xl font-bold text-gray-800 dark:text-white">
+    <div className="max-w-6xl mx-auto p-4 sm:p-8">
+      <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl p-4 sm:p-6 md:p-8 transition-colors duration-300">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-4 sm:mb-6 gap-3">
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 dark:text-white">
             📚 Add Course Schedules
           </h2>
           {availableCourses.length > 0 && (
-            <div className="bg-green-100 dark:bg-green-900/30 border-2 border-green-500 dark:border-green-600 text-green-800 dark:text-green-300 px-4 py-2 rounded-lg text-sm font-semibold">
+            <div className="bg-green-100 dark:bg-green-900/30 border-2 border-green-500 dark:border-green-600 text-green-800 dark:text-green-300 px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold">
               ✅ {availableCourses.length} courses loaded
             </div>
           )}
         </div>
 
-        <div className="space-y-8">
+        <div className="space-y-4 sm:space-y-6 md:space-y-8">
           {friends.map((friend, friendIndex) => (
-            <div key={friend.id} className="border-2 border-gray-200 dark:border-gray-600 rounded-xl p-6 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20">
-              <div className="flex items-center justify-between mb-4">
+            <div key={friend.id} className="border-2 border-gray-200 dark:border-gray-600 rounded-xl p-4 sm:p-6 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-4 gap-3">
                 <input
                   type="text"
                   value={friend.name}
                   onChange={(e) => handleFriendNameChange(friend.id, e.target.value)}
-                  className="text-2xl font-bold text-gray-800 dark:text-white bg-transparent border-b-2 border-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-400 outline-none px-2 py-1"
+                  className="text-xl sm:text-2xl font-bold text-gray-800 dark:text-white bg-transparent border-b-2 border-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-400 outline-none px-2 py-1 w-full sm:w-auto"
                   placeholder={`Friend ${friendIndex + 1} Name`}
                 />
-                <span className="bg-blue-500 dark:bg-blue-600 text-white px-4 py-2 rounded-full font-semibold">
+                <span className="bg-blue-500 dark:bg-blue-600 text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-full font-semibold text-sm">
                   {friend.courses.length} {friend.courses.length === 1 ? 'course' : 'courses'}
                 </span>
               </div>
@@ -227,11 +227,14 @@ const FriendSelector: React.FC<FriendSelectorProps> = ({ onComplete }) => {
                   const availableSections = course.course ? getAvailableSections(course.course) : [];
                   
                   return (
-                    <div key={courseIndex} className="grid grid-cols-12 gap-3 items-start bg-white dark:bg-gray-700 p-4 rounded-lg shadow">
-                      <span className="col-span-1 text-gray-600 dark:text-gray-400 font-semibold pt-2">{courseIndex + 1}.</span>
+                    <div key={courseIndex} className="grid grid-cols-1 sm:grid-cols-12 gap-3 items-start bg-white dark:bg-gray-700 p-3 sm:p-4 rounded-lg shadow">
+                      <span className="hidden sm:block sm:col-span-1 text-gray-600 dark:text-gray-400 font-semibold pt-2">{courseIndex + 1}.</span>
                       
                       {/* Course Searchable Select */}
-                      <div className="col-span-5">
+                      <div className="sm:col-span-5">
+                        <label className="block sm:hidden text-xs font-semibold text-gray-700 dark:text-gray-300 mb-1">
+                          Course {courseIndex + 1}
+                        </label>
                         <SearchableSelect
                           value={course.course}
                           onChange={(value) => handleCourseChange(friend.id, courseIndex, 'course', value)}
@@ -247,7 +250,10 @@ const FriendSelector: React.FC<FriendSelectorProps> = ({ onComplete }) => {
                       </div>
                       
                       {/* Section Searchable Select */}
-                      <div className="col-span-4">
+                      <div className="sm:col-span-4">
+                        <label className="block sm:hidden text-xs font-semibold text-gray-700 dark:text-gray-300 mb-1">
+                          Section
+                        </label>
                         <SearchableSelect
                           value={course.section}
                           onChange={(value) => handleCourseChange(friend.id, courseIndex, 'section', value)}
@@ -265,10 +271,10 @@ const FriendSelector: React.FC<FriendSelectorProps> = ({ onComplete }) => {
                       {/* Remove Button */}
                       <button
                         onClick={() => handleRemoveCourse(friend.id, courseIndex)}
-                        className="col-span-2 bg-red-500 hover:bg-red-600 dark:bg-red-600 dark:hover:bg-red-700 text-white rounded-lg px-4 py-2 font-semibold transition-colors h-[42px]"
+                        className="sm:col-span-2 bg-red-500 hover:bg-red-600 dark:bg-red-600 dark:hover:bg-red-700 text-white rounded-lg px-4 py-2 font-semibold transition-colors h-[42px] w-full sm:w-auto"
                         title="Remove this course"
                       >
-                        ✕
+                        ✕ Remove
                       </button>
                     </div>
                   );
@@ -277,7 +283,7 @@ const FriendSelector: React.FC<FriendSelectorProps> = ({ onComplete }) => {
 
               <button
                 onClick={() => handleAddCourse(friend.id)}
-                className="mt-4 w-full bg-blue-500 hover:bg-blue-600 dark:bg-blue-600 dark:hover:bg-blue-700 text-white font-semibold py-3 rounded-lg transition-colors flex items-center justify-center space-x-2"
+                className="mt-4 w-full bg-blue-500 hover:bg-blue-600 dark:bg-blue-600 dark:hover:bg-blue-700 text-white font-semibold py-2.5 sm:py-3 rounded-lg transition-colors flex items-center justify-center space-x-2 text-sm sm:text-base"
               >
                 <span>+</span>
                 <span>Add Course for {friend.name}</span>
@@ -286,20 +292,20 @@ const FriendSelector: React.FC<FriendSelectorProps> = ({ onComplete }) => {
           ))}
         </div>
 
-        <div className="mt-8 flex space-x-4">
+        <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
           <button
             onClick={() => {
               setStep('select-number');
               setFriends([]);
             }}
-            className="flex-1 bg-gray-500 hover:bg-gray-600 dark:bg-gray-600 dark:hover:bg-gray-700 text-white font-bold py-4 px-6 rounded-xl transition-colors"
+            className="flex-1 bg-gray-500 hover:bg-gray-600 dark:bg-gray-600 dark:hover:bg-gray-700 text-white font-bold py-3 sm:py-4 px-4 sm:px-6 rounded-xl transition-colors text-sm sm:text-base"
           >
             ← Back
           </button>
           
           <button
             onClick={handleSubmit}
-            className="flex-1 bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600 dark:from-green-600 dark:to-blue-600 dark:hover:from-green-700 dark:hover:to-blue-700 text-white font-bold py-4 px-6 rounded-xl transition-all transform hover:scale-105 shadow-lg"
+            className="flex-1 bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600 dark:from-green-600 dark:to-blue-600 dark:hover:from-green-700 dark:hover:to-blue-700 text-white font-bold py-3 sm:py-4 px-4 sm:px-6 rounded-xl transition-all transform hover:scale-105 shadow-lg text-sm sm:text-base"
           >
             Find Free Times! 🎯
           </button>
