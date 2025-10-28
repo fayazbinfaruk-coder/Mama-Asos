@@ -231,13 +231,30 @@ const NewResultsDisplay: React.FC<NewResultsDisplayProps> = ({ results }) => {
                       const labs = results.availableLabs?.[slot.day]?.[slot.time] || [];
                       
                       return (
-                        <div key={i} className="bg-green-50 dark:bg-green-900/30 rounded-lg p-3 border-l-4 border-green-500 dark:border-green-600">
-                          <div className="font-semibold text-gray-800 dark:text-gray-200">{slot.time}</div>
-                          {labs.length > 0 && (
-                            <div className="text-xs text-gray-600 dark:text-gray-400 mt-1">
-                              <span className="font-semibold">📍 Labs: </span>
-                              {labs.slice(0, 2).join(', ')}
-                              {labs.length > 2 && ` +${labs.length - 2}`}
+                        <div key={i} className="bg-green-50 dark:bg-green-900/30 rounded-lg p-4 border-l-4 border-green-500 dark:border-green-600 hover:bg-green-100 dark:hover:bg-green-800/40 transition-colors">
+                          <div className="font-bold text-lg text-gray-800 dark:text-gray-200 mb-2">
+                            ⏰ {slot.time}
+                          </div>
+                          
+                          {labs.length > 0 ? (
+                            <div className="mt-2">
+                              <div className="text-sm font-semibold text-green-700 dark:text-green-400 mb-2">
+                                📍 Available Labs ({labs.length}):
+                              </div>
+                              <div className="flex flex-wrap gap-2">
+                                {labs.map((lab, labIndex) => (
+                                  <span 
+                                    key={labIndex}
+                                    className="inline-block bg-blue-100 dark:bg-blue-900/40 text-blue-800 dark:text-blue-200 text-xs font-semibold px-3 py-1 rounded-full border border-blue-300 dark:border-blue-700"
+                                  >
+                                    {lab}
+                                  </span>
+                                ))}
+                              </div>
+                            </div>
+                          ) : (
+                            <div className="text-xs text-orange-600 dark:text-orange-400 mt-2">
+                              ⚠️ No labs available at this time
                             </div>
                           )}
                         </div>
