@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body { font-family: Arial; padding: 20px; }
+        h1 { color: #333; text-align: center; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: center; }
+        th { background-color: #4CAF50; color: white; }
+        tr:nth-child(even) { background-color: #f2f2f2; }
+        .busy { background-color: #ff9999; }
+        .free { background-color: #99ff99; }
+    </style>
+</head>
+<body>
+    <h1>Sample Class Schedule</h1>
+    <p><strong>Student Name:</strong> John Doe</p>
+    <p><strong>Semester:</strong> Fall 2025</p>
+
+    <table>
+        <tr>
+            <th>TIME/DAY</th>
+            <th>SUNDAY</th>
+            <th>MONDAY</th>
+            <th>TUESDAY</th>
+            <th>WEDNESDAY</th>
+            <th>THURSDAY</th>
+            <th>FRIDAY</th>
+            <th>SATURDAY</th>
+        </tr>
+        <tr>
+            <td>08:00 AM - 09:30 AM</td>
+            <td class="free"></td>
+            <td class="busy">SOC101-11-NZS-09G-30C</td>
+            <td class="free"></td>
+            <td class="busy">SOC101-11-NZS-09G-30C</td>
+            <td class="busy">CSE422-06-RRH-09E-20T</td>
+            <td class="free"></td>
+            <td class="busy">CSE422-06-RRH-09E-20T</td>
+        </tr>
+        <tr>
+            <td>09:30 AM - 11:00 AM</td>
+            <td class="free"></td>
+            <td class="free"></td>
+            <td class="free"></td>
+            <td class="free"></td>
+            <td class="busy">CSE421-07-SRJ-10A-04C</td>
+            <td class="free"></td>
+            <td class="busy">CSE421-07-SRJ-10A-04C</td>
+        </tr>
+        <tr>
+            <td>11:00 AM - 12:30 PM</td>
+            <td class="busy">CSE471-02-MIH-09E-20T</td>
+            <td class="free"></td>
+            <td class="busy">CSE471-02-MIH-09E-20T</td>
+            <td class="free"></td>
+            <td class="free"></td>
+            <td class="free"></td>
+            <td class="free"></td>
+        </tr>
+        <tr>
+            <td>12:30 PM - 02:00 PM</td>
+            <td class="free">Break</td>
+            <td class="busy">CSE422L-06-10G-34L</td>
+            <td class="free">Break</td>
+            <td class="free">Break</td>
+            <td class="busy">CSE471L-02-09F-26L</td>
+            <td class="free">Break</td>
+            <td class="free">Break</td>
+        </tr>
+        <tr>
+            <td>02:00 PM - 03:30 PM</td>
+            <td class="free"></td>
+            <td class="free"></td>
+            <td class="busy">CSE421L-07-09F-25L</td>
+            <td class="free"></td>
+            <td class="free"></td>
+            <td class="free"></td>
+            <td class="free"></td>
+        </tr>
+        <tr>
+            <td>03:30 PM - 05:00 PM</td>
+            <td class="free"></td>
+            <td class="free"></td>
+            <td class="free"></td>
+            <td class="free"></td>
+            <td class="free"></td>
+            <td class="free"></td>
+            <td class="free"></td>
+        </tr>
+    </table>
+
+    <div style="margin-top: 30px;">
+        <h3>Legend:</h3>
+        <p><span class="busy" style="padding: 5px; display: inline-block;">Busy</span> - Class scheduled (Theory or Lab)</p>
+        <p><span class="free" style="padding: 5px; display: inline-block;">Free</span> - No class</p>
+        <p><strong>Note:</strong> Classes ending in 'L' are lab classes and occupy 2 consecutive time slots (3 hours)</p>
+        <ul style="margin-top: 10px;">
+            <li><strong>CSE422L-06-10G-34L</strong> (Monday 12:30 PM) - Lab class, takes 12:30-2:00 PM slot</li>
+            <li><strong>CSE471L-02-09F-26L</strong> (Thursday 12:30 PM) - Lab class, takes 12:30-2:00 PM slot</li>
+            <li><strong>CSE421L-07-09F-25L</strong> (Tuesday 2:00 PM) - Lab class, takes 2:00-3:30 PM slot</li>
+        </ul>
+    </div>
+
+    <div style="margin-top: 20px; padding: 15px; background-color: #e7f3fe; border-left: 4px solid #2196F3;">
+        <p><strong>Note:</strong> You can print this page or take a screenshot to use as a sample schedule for testing the app!</p>
+    </div>
+</body>
+</html>
