@@ -109,7 +109,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-8">
             <h1 className="text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text text-transparent mb-4">
-              Mama Asos
+              Mama Asos??
             </h1>
             <p className="text-xl text-gray-700 dark:text-gray-300">
               Select your friends' courses and find the perfect time to meet!
